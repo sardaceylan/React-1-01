@@ -5,8 +5,10 @@ export default class CategoryList extends Component {
       categories : [
         { categoryId : 1, categoryName : "Beverages"},
         { categoryId : 2, categoryName : "Condiments"}
-      ]
+      ],
   };
+
+  
   // constructor(props){
   //   super(props)
   //   state:{}
@@ -18,10 +20,11 @@ export default class CategoryList extends Component {
         <ListGroup>
           {
             this.state.categories.map(category => (
-              <ListGroupItem key={category.categoryId}>{category.categoryName}</ListGroupItem>
+              <ListGroupItem onClick={() => this.props.changeCategory(category)} key={category.categoryId}>{category.categoryName}</ListGroupItem>
             ))
           }
       </ListGroup>
+      <h4>{this.props.currentCategory}</h4>
     </div>
   }
 }
